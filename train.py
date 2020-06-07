@@ -20,7 +20,7 @@ from utils import save_img, print_options, init_vgg16, preprocess_vgg16, img_pre
 # Training settings
 parser = argparse.ArgumentParser(description='pix2pix-pytorch-implementation')
 parser.add_argument('--dataset', required=True, help='facades')
-parser.add_argument('--folder_name', required=True, help='name of the folder you to save results in')
+parser.add_argument('--folder_name', required=True, help='name of the folder to save results in')
 parser.add_argument('--training_set', type=str, default='our485', help='name of the folder for the trianing set')
 parser.add_argument('--eval_set', type=str, default='eval15', help='name of the folder for the evaluation set')
 parser.add_argument('--batch_size', type=int, default=1, help='training batch size')

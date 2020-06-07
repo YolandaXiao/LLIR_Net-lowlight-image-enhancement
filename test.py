@@ -16,10 +16,10 @@ from dataset import scale_width, make_power_2
 # Testing settings
 parser = argparse.ArgumentParser(description='pix2pix-pytorch-implementation')
 parser.add_argument('--dataset', required=True, help='facades')
+parser.add_argument('--folder_name', required=True, help='name of the folder to run results')
 parser.add_argument('--dataset_gt', type=str, help='facades')
 parser.add_argument('--nepochs', type=int, default=200, help='saved model of which epochs')
 parser.add_argument('--cuda', action='store_true', help='use cuda')
-parser.add_argument('--notes', type=str, required=True, help='notes on the run')
 parser.add_argument('--result_path', type=str, default='result', help='notes on the run')
 parser.add_argument('--image_width', type=int, default=768, help='notes on the run')
 opt = parser.parse_args()
@@ -27,7 +27,7 @@ print(opt)
 device = torch.device("cuda:0" if opt.cuda else "cpu")
 
 # model paths
-output_dir = os.path.join("output", opt.notes)
+output_dir = os.path.join("output", opt.folder_name)
 ckpt_dir = os.path.join(output_dir, "checkpoint")
 result_dir = os.path.join(output_dir, opt.result_path)
 if not os.path.exists(result_dir):
