@@ -10,7 +10,7 @@ from pytorch_msssim import ssim, ms_ssim, SSIM, MS_SSIM
 import torch
 import torchvision.transforms as transforms
 
-from utils import is_image_file, load_img, save_img, decompose_img, save_img_np, img_predicted, calculate_psnr
+from utils import is_image_file, load_img, save_img, decompose_img, save_img_np, img_predicted
 from dataset import scale_width, make_power_2
 
 # Testing settings
@@ -35,7 +35,6 @@ if not os.path.exists(result_dir):
 
 model_r_path = os.path.join(ckpt_dir, "netR_model_epoch_{}.pth".format(str(opt.nepochs)))
 model_i_path = os.path.join(ckpt_dir, "netI_model_epoch_{}.pth".format(str(opt.nepochs)))
-# if cpu
 net_r = torch.load(model_r_path, map_location={'cuda:0': 'cpu'}).to(device)
 net_i = torch.load(model_i_path, map_location={'cuda:0': 'cpu'}).to(device)
 
@@ -58,7 +57,7 @@ avg_ssim = 0
 avg_time = 0
 count = 0
 for image_name in image_filenames:
-    img = load_img(image_dir + image_name)
+    img = load_img(os.path.join(image_dir, image_name))
 
     # get illumination and reflectance
     kernel = np.ones((5,5),np.uint8)
