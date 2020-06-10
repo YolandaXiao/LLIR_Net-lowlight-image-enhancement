@@ -98,7 +98,6 @@ if opt.lamb_content > 0:
   init_vgg16(root_path)
   vgg.load_state_dict(torch.load(os.path.join(root_path, "vgg16.weight")))
   vgg.to(device)
-#   vgg.cuda(device)
 
 # define loss
 criterionL1 = nn.L1Loss().to(device)
