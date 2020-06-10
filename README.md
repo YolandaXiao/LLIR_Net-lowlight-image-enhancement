@@ -18,6 +18,7 @@ This is a PyTorch implementation of Low-light Illumination and Reflectance based
    1. For example, run `python3 test.py --dataset ./datasets/testing_datasets/MEF --folder_name test1 --cuda`
    1. Remove the `--cuda` tag if you're running on CPU
    1. Replace `MEF` with `DICM` or `NPE` to run test on different datasets
+   1. Add `--result_path [output sub-folder path]` to specify the name of the output folder path. The default folder is "result", at the path `./output/[folder_name]/result/`.
 
 ### Steps for training
 1. Clone this repository `git clone https://github.com/YolandaXiao/LLIR_Net-lowlight-image-enhancement.git`
